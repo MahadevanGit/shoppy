@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "microservices", "microservices", "{A6E2FD2D-38DA-4346-A886-625D9ABA2824}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shoppy.client", "shoppy.client\shoppy.client.csproj", "{4FC75CE1-AF59-4FBF-B3D1-FB4910B7DE0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FC75CE1-AF59-4FBF-B3D1-FB4910B7DE0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FC75CE1-AF59-4FBF-B3D1-FB4910B7DE0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FC75CE1-AF59-4FBF-B3D1-FB4910B7DE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FC75CE1-AF59-4FBF-B3D1-FB4910B7DE0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4FC75CE1-AF59-4FBF-B3D1-FB4910B7DE0B} = {A6E2FD2D-38DA-4346-A886-625D9ABA2824}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75A2EE70-AE3E-4BF6-B668-C4A85258482B}
+	EndGlobalSection
+EndGlobal
