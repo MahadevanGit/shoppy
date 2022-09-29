@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using shoppy.client.Data;
 using shoppy.client.Models;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace shoppy.client.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(ProductContext.Products);
         }
 
         public IActionResult Privacy()
