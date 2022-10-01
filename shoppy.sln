@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "microservices", "microservi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shoppy.client", "shoppy.client\shoppy.client.csproj", "{4FC75CE1-AF59-4FBF-B3D1-FB4910B7DE0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shoppy.client.api", "shoppy.client.api\shoppy.client.api.csproj", "{52FDBB39-3ABE-4815-9993-C7E270E71A58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +19,17 @@ Global
 		{4FC75CE1-AF59-4FBF-B3D1-FB4910B7DE0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FC75CE1-AF59-4FBF-B3D1-FB4910B7DE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FC75CE1-AF59-4FBF-B3D1-FB4910B7DE0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52FDBB39-3ABE-4815-9993-C7E270E71A58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52FDBB39-3ABE-4815-9993-C7E270E71A58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52FDBB39-3ABE-4815-9993-C7E270E71A58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52FDBB39-3ABE-4815-9993-C7E270E71A58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4FC75CE1-AF59-4FBF-B3D1-FB4910B7DE0B} = {A6E2FD2D-38DA-4346-A886-625D9ABA2824}
+		{52FDBB39-3ABE-4815-9993-C7E270E71A58} = {A6E2FD2D-38DA-4346-A886-625D9ABA2824}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {75A2EE70-AE3E-4BF6-B668-C4A85258482B}

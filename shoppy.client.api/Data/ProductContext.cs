@@ -1,10 +1,10 @@
-﻿using shoppy.client.Models;
+﻿using shoppy.client.api.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace shoppy.client.Data
+namespace shoppy.client.api.Data
 {
     public static class ProductContext
     {
@@ -12,7 +12,7 @@ namespace shoppy.client.Data
         {
             new Product()
                 {
-                    Name = "IPhone X",
+                    Name = "IPhone XS",
                     Description = "This phone is the company's biggest change to its flagship smartphone in years. It includes a borderless.",
                     ImageFile = "product-1.png",
                     Price = 950.00M,

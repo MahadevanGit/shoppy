@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using shoppy.client.Data;
+using Newtonsoft.Json;
 using shoppy.client.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace shoppy.client.Controllers
@@ -13,15 +14,22 @@ namespace shoppy.client.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly HttpClient _httpClinet;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(
+            ILogger<HomeController> logger,
+            IHttpClientFactory httpClientFactory)
         {
             _logger = logger;
+            _httpClinet = httpClientFactory.CreateClient("shoppyapiclient");
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(ProductContext.Products);
+            var response = await _httpClinet.GetAsync("api/product");
+            var content = await response.Content.ReadAsStringAsync();
+            var productList = JsonConvert.DeserializeObject<IEnumerable<Product>>(content);
+            return View(productList);
         }
 
         public IActionResult Privacy()
