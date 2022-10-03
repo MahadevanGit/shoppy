@@ -1,4 +1,6 @@
-﻿using shoppy.client.api.Models;
+﻿using Microsoft.Extensions.Configuration;
+using MongoDB.Driver;
+using shoppy.client.api.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,11 +8,36 @@ using System.Threading.Tasks;
 
 namespace shoppy.client.api.Data
 {
-    public static class ProductContext
+    public class ProductContext
     {
-        public static readonly List<Product> Products = new List<Product>
+        private readonly IConfiguration _configuration;
+        public ProductContext(IConfiguration configuration)
         {
-            new Product()
+            _configuration = configuration;
+            var client = new MongoClient(_configuration["DatabaseSettings:ConnectionString"]);
+            var database = client.GetDatabase(_configuration["DatabaseSettings:DatabaseName"]);
+
+            Products = database.GetCollection<Product>(_configuration["DatabaseSettings:CollectionName"]);
+            SeedData(Products);
+        }
+
+        public IMongoCollection<Product> Products { get; }
+
+        private static void SeedData(IMongoCollection<Product> productCollection)
+        {
+            bool existProduct = productCollection.Find(p => true).Any();
+            if (!existProduct)
+            {
+                var data = GetPreConfiguredProduct();
+                productCollection.InsertManyAsync(data);
+            }
+        }
+
+        private static IEnumerable<Product> GetPreConfiguredProduct()
+        {
+            return new List<Product>()
+            {
+                new Product()
                 {
                     Name = "IPhone XS",
                     Description = "This phone is the company's biggest change to its flagship smartphone in years. It includes a borderless.",
@@ -59,5 +86,6 @@ namespace shoppy.client.api.Data
                     Category = "Home Kitchen"
                 }
         };
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace shoppy.client
         {
             services.AddHttpClient("shoppyapiclient", client =>
              {
-                 client.BaseAddress = new Uri("http://localhost:5000/"); //shoppy.client.api
+                 client.BaseAddress = new Uri(Configuration["shoppyapiclientUrl"]); //shoppy.client.api
              });
             services.AddControllersWithViews();
         }
