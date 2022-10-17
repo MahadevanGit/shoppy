@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  shoppy.client.api:
+    image: ${DOCKER_REGISTRY-}shoppyclientapi
+    build:
+      context: .
+      dockerfile: shoppy.client.api/Dockerfile
+
+  shoppy.client:
+    image: ${DOCKER_REGISTRY-}shoppyclient
+    build:
+      context: .
+      dockerfile: shoppy.client/Dockerfile
+
+  shoppy.client.db:
+    image: mongo
+

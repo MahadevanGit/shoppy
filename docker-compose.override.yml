@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  shoppy.client.api:
+    container_name: shoppyclientapi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=mongodb://shoppyclientdb:27017"
+    depends_on:
+      - shoppy.client.db
+    ports:
+      - "8000:80"
+
+  shoppy.client:
+    container_name: shoppyclient
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "shoppyapiclientUrl= http://shoppyclientapi"
+    depends_on:
+      - shoppy.client.db
+      - shoppy.client.api
+    ports:
+      - "8001:80"
+
+  shoppy.client.db:
+    container_name: shoppyclientdb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ${WEBAPP_STORAGE_HOME}/site:/data/db
+
