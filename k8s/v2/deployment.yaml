@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+  labels:
+    app: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      terminationGracePeriodSeconds: 200
+      containers:
+      - name: mongodb
+        image: mongo
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 27017 
+        volumeMounts:
+          - mountPath: /tmp/mongo/db
+            name: mongo-storage
+      volumes:
+        - emptyDir: {}
+          name: mongo-storage
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: mongodb
+  name: mongo-service
+spec:
+  ports:
+    - port: 27017
+      targetPort: 27017
+  selector:
+    name: mongodb

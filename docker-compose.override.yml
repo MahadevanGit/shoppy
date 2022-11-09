@@ -5,7 +5,7 @@ services:
     container_name: shoppyclientapi
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString=mongodb://shoppyclientdb:27017"
+      - "DatabaseSettings:ConnectionString=mongodb://shoppyclientdbs:27017"
     depends_on:
       - shoppy.client.db
     ports:
@@ -23,7 +23,7 @@ services:
       - "8001:80"
 
   shoppy.client.db:
-    container_name: shoppyclientdb
+    container_name: shoppyclientdbs
     restart: always
     ports:
       - "27017:27017"
